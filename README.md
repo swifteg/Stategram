@@ -40,6 +40,7 @@ Stateful request handling methods have a signature `Task<Transition> MethodName(
  - Testing utilities
  - More features
  - More example projects
+ - Push to nuget
 
 ## License
 MIT
