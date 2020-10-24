@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30413.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Stategram", "Stategram\Stategram.csproj", "{C5425225-5B08-4345-8BC6-D11F2D525886}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoBot", "Examples\TodoBot\TodoBot.csproj", "{C969C317-EB0D-48D2-8DA9-31547B0F9F77}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{54B0DDB1-84B7-488B-BEA4-6B965003BD96}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C5425225-5B08-4345-8BC6-D11F2D525886}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5425225-5B08-4345-8BC6-D11F2D525886}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5425225-5B08-4345-8BC6-D11F2D525886}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5425225-5B08-4345-8BC6-D11F2D525886}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C969C317-EB0D-48D2-8DA9-31547B0F9F77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C969C317-EB0D-48D2-8DA9-31547B0F9F77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C969C317-EB0D-48D2-8DA9-31547B0F9F77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C969C317-EB0D-48D2-8DA9-31547B0F9F77}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C969C317-EB0D-48D2-8DA9-31547B0F9F77} = {54B0DDB1-84B7-488B-BEA4-6B965003BD96}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {27F7A44E-8148-4C26-B05D-B1B33A26B443}
+	EndGlobalSection
+EndGlobal
