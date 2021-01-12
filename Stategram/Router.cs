@@ -61,43 +61,6 @@ namespace Stategram
             applyConfigurations(new RouterConfigurator(this));
         }
 
-        /// <summary>
-        /// Fluent syntax. Chain Add.
-        /// </summary>
-        /// <param name="forState">Source state for which to add transitions.</param>
-        /// <returns></returns>
-        public RegisterTransitionsObject RegisterOuterTransitionsFrom(Type forState)
-        {
-            return new RegisterTransitionsObject(_stateMachine, forState, _controllerNameToType[_startState.OuterState], _startState.InnerState);
-        }
-
-        /// <summary>
-        /// Fluent syntax. Chain AddImplementation and AddInstance.
-        /// </summary>
-        /// <returns></returns>
-        public RegisterDependenciesObject RegisterDependencies()
-        {
-            return new RegisterDependenciesObject(_container);
-        }
-
-        /// <summary>
-        /// Fluent syntax. Chain Add().
-        /// </summary>
-        /// <returns></returns>
-        public RegisterMiddlewareObject RegisterMessageMiddleware()
-        {
-            return new RegisterMiddlewareObject(_middlewares, _container);
-        }
-
-        /// <summary>
-        /// Fluent syntax. Chain Start() and then Add().
-        /// </summary>
-        /// <returns></returns>
-        public RegisterStartStateObject RegisterControllers()
-        {
-            return new RegisterStartStateObject(_container, _controllerNameToType, _stateMachine, _startState);
-        }
-
         private async Task<bool> ApplyMessageMiddleware(MiddlewareContext context)
         {
             foreach(var mwareType in _middlewares)

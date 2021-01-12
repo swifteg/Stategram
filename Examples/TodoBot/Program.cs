@@ -12,21 +12,25 @@ namespace TodoBot
         {
             var apiKey = args[0];
             var router = new Router(apiKey);
-            router.RegisterControllers()
-                .Start(typeof(StartController), nameof(StartController.Welcome))
-                .Add(typeof(TodoController));
 
-            router.RegisterDependencies()
-                .AddSingleton(typeof(ITodoItemRepository), typeof(TodoItemInMemoryRepository))
-                .AddImplementation(typeof(UIItemService));
+            router.Configure(config =>
+            {
+                config.RegisterControllers()
+                    .Start(typeof(StartController), nameof(StartController.Welcome))
+                    .Add(typeof(TodoController));
 
-            router.RegisterOuterTransitionsFrom(typeof(StartController))
-                .AddInstant(StartController.Results.ListPressed, typeof(TodoController), nameof(TodoController.ListTodo))
-                .AddInstant(StartController.Results.TodoPressed, typeof(TodoController), nameof(TodoController.AddTodo));
+                config.RegisterDependencies()
+                    .AddSingleton(typeof(ITodoItemRepository), typeof(TodoItemInMemoryRepository))
+                    .AddImplementation(typeof(UIItemService));
 
-            router.RegisterOuterTransitionsFrom(typeof(TodoController))
-                .ToStart(TodoController.Results.TodoListShown)
-                .ToStart(TodoController.Results.TodoItemAdded);
+                config.RegisterOuterTransitionsFrom(typeof(StartController))
+                    .AddInstant(StartController.Results.ListPressed, typeof(TodoController), nameof(TodoController.ListTodo))
+                    .AddInstant(StartController.Results.TodoPressed, typeof(TodoController), nameof(TodoController.AddTodo));
+
+                config.RegisterOuterTransitionsFrom(typeof(TodoController))
+                    .ToStart(TodoController.Results.TodoListShown)
+                    .ToStart(TodoController.Results.TodoItemAdded);
+            });
 
             router.Start();
             Console.ReadKey();
