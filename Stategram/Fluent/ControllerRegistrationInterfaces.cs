@@ -4,13 +4,13 @@ using System.Text;
 
 namespace Stategram.Fluent
 {
-    interface IRegisterStartController
+    public interface IRegisterStartController
     {
         IRegisterController Start(Type outerState, string innerState);
     }
 
-    interface IRegisterController
+    public interface IRegisterController
     {
-        IRegisterController Add(Type outerState);
+        IRegisterController Add(Type controllerType);
     }
 }

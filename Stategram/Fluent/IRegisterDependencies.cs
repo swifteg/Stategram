@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Stategram.Fluent
 {
-    interface IRegisterDependencies
+    public interface IRegisterDependencies
     {
         IRegisterDependencies AddImplementation(Type service, Type implementation);
 

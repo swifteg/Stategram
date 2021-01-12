@@ -4,7 +4,8 @@ using System.Text;
 
 namespace Stategram.Fluent
 {
-    interface IRegisterTransitions
+
+    public interface IRegisterTransitions
     {
         IRegisterTransitions AddDeferred(object symbol, Type outerState, string innerState);
 

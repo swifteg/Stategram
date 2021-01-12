@@ -14,7 +14,7 @@ using Telegram.Bot.Types.ReplyMarkups;
 
 namespace Stategram
 {
-    public class Router
+    public partial class Router
     {
         private readonly Container _container = new Container();
 
@@ -54,6 +54,11 @@ namespace Stategram
             _bot.OnMessage += OnMessage;
             _bot.OnCallbackQuery += OnCallbackQuery;
             _bot.StartReceiving();
+        }
+
+        public void Configure(Action<IRouterConfig> applyConfigurations)
+        {
+            applyConfigurations(new RouterConfigurator(this));
         }
 
         /// <summary>
@@ -165,6 +170,7 @@ namespace Stategram
             var messageHasPassedMiddleware = await ApplyMessageMiddleware(middlewareContext).ConfigureAwait(false);
             if (!messageHasPassedMiddleware)
             {
+                // middleware may have changed the state and set a response
                 await _stateRepository.SetUserState(context.TelegramUserId, userState).ConfigureAwait(false);
                 await SendResponses(context.ChatId, middlewareContext.Response).ConfigureAwait(false);
                 return;
@@ -321,7 +327,6 @@ namespace Stategram
             }
         }
         
-
     }
 }
 

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Stategram.Fluent
 {
-    interface IRegisterMiddleware
+    public interface IRegisterMiddleware
     {
         IRegisterMiddleware Add(Type middleware);
     }
