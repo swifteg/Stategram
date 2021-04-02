@@ -13,12 +13,12 @@ namespace Stategram
 
     public class ControllerContext
     {
-        public int TelegramUserId { get; set; }
-        public Message Message { get; set; }
-        public CallbackQuery CallbackQuery { get; set; }
-        public EventTypes Event { get; set; }
+        public int TelegramUserId { get; init; }
+        public Message Message { get; init; }
+        public CallbackQuery CallbackQuery { get; init; }
+        public EventTypes Event { get; init; }
         public Dictionary<string, object> EventPayload { get; } = new();
-        public long ChatId { get; set; }
+        public long ChatId { get; init; }
     }
 
     public abstract class BaseController
