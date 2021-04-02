@@ -9,7 +9,7 @@ namespace Stategram
 {
     public class InMemoryStateRepository : IStateRepository
     {
-        private readonly Dictionary<int, IUserState> _memory = new Dictionary<int, IUserState>();
+        private readonly Dictionary<int, IUserState> _memory = new();
 
         public Task<IUserState> GetUserState(int telegramUserId)
         {

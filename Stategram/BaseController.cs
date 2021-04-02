@@ -17,7 +17,7 @@ namespace Stategram
         public Message Message { get; set; }
         public CallbackQuery CallbackQuery { get; set; }
         public EventTypes Event { get; set; }
-        public Dictionary<string, object> EventPayload { get; } = new Dictionary<string, object>();
+        public Dictionary<string, object> EventPayload { get; } = new();
         public long ChatId { get; set; }
     }
 

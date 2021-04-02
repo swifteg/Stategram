@@ -16,18 +16,18 @@ namespace Stategram
 {
     public partial class Router
     {
-        private readonly Container _container = new Container();
+        private readonly Container _container = new();
 
         private readonly ITelegramBotClient _bot;
         private readonly IStateRepository _stateRepository;
         private readonly ILogger _logger;
         private readonly IExceptionHandler _exceptionHandler;
 
-        private readonly Dictionary<string, Type> _controllerNameToType = new Dictionary<string, Type>();
-        private readonly OuterStateMachine<Type> _stateMachine = new OuterStateMachine<Type>();
-        private readonly List<Type> _middlewares = new List<Type>();
+        private readonly Dictionary<string, Type> _controllerNameToType = new();
+        private readonly OuterStateMachine<Type> _stateMachine = new();
+        private readonly List<Type> _middlewares = new();
 
-        private readonly UserState _startState = new UserState(null, null);
+        private readonly UserState _startState = new(null, null);
 
         public Router(ITelegramBotClient bot,
             IStateRepository stateRepository = null,
@@ -72,7 +72,7 @@ namespace Stategram
             return true;
         }
 
-        private UserState CreateNewUserState() => new UserState(_startState.OuterState, _startState.InnerState);
+        private UserState CreateNewUserState() => new(_startState.OuterState, _startState.InnerState);
 
         private async Task<bool> AdvanceState(IUserState userState, Transition transition)
         {

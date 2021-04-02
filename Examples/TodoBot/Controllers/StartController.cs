@@ -15,7 +15,7 @@ namespace TodoBot.Controllers
             TodoPressed
         }
 
-        public string[][] Menu => new string[][] { new[] { "/list" }, new[] { "/todo" } };
+        public static string[][] Menu => new string[][] { new[] { "/list" }, new[] { "/todo" } };
 
         [Entry]
         public Task<Transition> Welcome()

@@ -7,8 +7,8 @@ namespace Stategram
 {
     public class StateMachine<StateType>
     {
-        private readonly HashSet<StateType> _states = new HashSet<StateType>();
-        private readonly Dictionary<(StateType state, object transition), StateType> _transitions = new Dictionary<(StateType state, object transition), StateType>();
+        private readonly HashSet<StateType> _states = new();
+        private readonly Dictionary<(StateType state, object transition), StateType> _transitions = new();
         private StateType _currentState;
 
         public void AddState(StateType state)
@@ -60,8 +60,8 @@ namespace Stategram
 
     public class OuterStateMachine<StateType> 
     {
-        private readonly StateMachine<StateType> _stateMachine = new StateMachine<StateType>();
-        private readonly Dictionary<(StateType outerState, object symbol), (string innerState, bool forward)> _innerStateDict = new Dictionary<(StateType outerState, object symbol), (string innerState, bool forward)>();
+        private readonly StateMachine<StateType> _stateMachine = new();
+        private readonly Dictionary<(StateType outerState, object symbol), (string innerState, bool forward)> _innerStateDict = new();
 
         public void AddState(StateType state)
         {

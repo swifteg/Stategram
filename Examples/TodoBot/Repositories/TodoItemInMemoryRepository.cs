@@ -9,8 +9,8 @@ namespace TodoBot.Repositories
     class TodoItemInMemoryRepository : ITodoItemRepository
     {
 
-        private readonly Dictionary<int, List<TodoItem>> _userToItems = new Dictionary<int, List<TodoItem>>();
-        private readonly Dictionary<int, TodoItem> _idToItem = new Dictionary<int, TodoItem>();
+        private readonly Dictionary<int, List<TodoItem>> _userToItems = new();
+        private readonly Dictionary<int, TodoItem> _idToItem = new();
         private int _autoIncrement = 0;
         
         public Task DeleteByIdAsync(int id)
