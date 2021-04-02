@@ -4,6 +4,7 @@ using System.Text;
 
 namespace Stategram.Attributes
 {
+    [AttributeUsage(AttributeTargets.Method)]
     public class StatelessListenerAttribute : Attribute
     {
     }
